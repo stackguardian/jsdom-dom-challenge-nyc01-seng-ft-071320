@@ -22,6 +22,9 @@ function decrementTimer() {
     console.dir(count)
 }
 
+let commentUL = document.createElement('ul')
+ document.querySelector('#list').append(commentUL)
+
 document.addEventListener('click', function(e){
     let plusButton = document.getElementById('plus')
     let minusButton = document.getElementById('minus')
@@ -62,8 +65,13 @@ document.addEventListener('click', function(e){
             likeButton.disabled = false
             submitButton.disabled = false
             e.target.innerText = 'pause'
-        }
-        
-
+        }}
+    else if (e.target == document.getElementById('submit')){
+        e.preventDefault()
+        comment = document.createElement('li')
+        comment.innerText = document.getElementById('comment-input').value
+        commentUL.append(comment)
     }
+
+    
 })
